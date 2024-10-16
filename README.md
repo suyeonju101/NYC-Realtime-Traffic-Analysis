@@ -1,10 +1,12 @@
-# Traffic Tutorial
+# NYC Realtime Traffic Analysis
 
-Sample application created as a result of a tutorial: [Traffic tutorial](https://developer.tomtom.com/maps-sdk-web-js-v5/tutorials-use-cases/traffic-tutorial).
+*Note: This application builds on top of the sample application provided by TomTom API. You can find the original tutorial here: [TomTom Traffic Tutorial](https://developer.tomtom.com/maps-sdk-web-js-v5/tutorials-use-cases/traffic-tutorial).*
 
-## App screenshot
+This repository offers a detailed analysis of real-time traffic data in New York City, combining both **traffic flow** and **incident** data to deliver actionable insights. The project is designed to provide users with comprehensive visualizations of current traffic conditions, helping optimize travel routes and identify congestion points.
 
-<img src="screenshots/incident_clusters.png" width="700">
-<img src="screenshots/no_incidents_in_bbox.png" width="700">
-<img src="screenshots/drawbbox_clicked_message.png" width="700">
-<img src="screenshots/bbox_single_incident_zoom.png" width="700">
+### Key Features
+- **Real-time data extraction**: Leverages the TomTom API to fetch both live **traffic flow** and **incidents** data for NYC.
+- **Interactive visualizations**: Clear and dynamic visualizations of traffic patterns across NYC, enabling better decision-making for commuters and analysts.
+
+### Enhancements from the Sample Application
+- The traffic flow style has been customized to use `absolute` speed values (in km/h) instead of the default `relative` flow style.
