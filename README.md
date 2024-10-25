@@ -15,10 +15,10 @@ For a live view of the traffic analysis, check out the interactive map: [NYC Rea
 - The map updates automatically every hour to ensure up-to-date traffic information.
 - The traffic flow style uses `absolute` speed values (in km/h) instead of the default `relative` flow style for clearer interpretation of traffic conditions.
 
-## Limitation
+### Limitation
 - It focuses solely on visualizing traffic patterns (flows and incidents), but it does not fetch or store the data locally for further analysis. It is a black box. This restricts the ability to (1) explore/analyze historical and realtime traffic patterns and (2) perform predictive modeling directly within the application.
 
-## Beyond Visualization: Fetching and Analyzing Data 
+### Beyond Visualization: Fetching and Analyzing Data 
 To overcome this limitation and extend the project's capabilities, I have implemented an approach that fetches real-time traffic data, enabling deeper analysis beyond just visualization:
 - **Data extraction:** Using the TomTom Traffic API, real-time traffic flow and incident data are collected and stored for further analysis.
 - **Jupyter Notebook for in-depth analysis:** The repository includes a Jupyter Notebook where the fetched data is processed and visualized in python. This setup allows for traffic flow and incident trend analysis, making it possible to develop predictive models to forecast future traffic conditions or identify potential congestion hotspots.
