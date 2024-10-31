@@ -13,15 +13,18 @@ os.makedirs(incident_output_dir, exist_ok=True)
 os.makedirs(flow_output_dir, exist_ok=True)
 
 ## CHANGE VALUES AS YOU WANT #############
-# Initialize API key
+# Define API key
 API_KEY = "N8xhZrbfY7NZEqbqIeEedz4xUBmXARBG"
 
 # Define the Region of Interest (ROI)
+# For Incidents:
 bbox = "-74.25,40.50,-73.70,40.95"               # bounding box coordinates for NYC
+# For Flows:
 nyc_lat_min, nyc_lat_max = 40.79830, 40.81826    # Latitude from 103rd to 130th Street
 nyc_lon_min, nyc_lon_max = -73.97502, -73.94881  # Longitude from the west edge of Manhattan to Central Park West
-lat_step, lon_step = 0.0005, 0.0015
+lat_step, lon_step = 0.00075, 0.0015
 
+# Define the time interval
 incident_interval = 3600         # an hour in seconds
 flow_intervals = {8, 9, 16, 17}  # Peak hours: 8-9 AM, 9-10 AM, 4-5 PM, 5-6 PM
 ## CHANGE#################################
