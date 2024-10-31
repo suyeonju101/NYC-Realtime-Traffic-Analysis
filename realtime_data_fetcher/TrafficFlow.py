@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import numpy as np
 
 class TrafficFlowFetcher:
     def __init__(self, api_key, 
@@ -20,13 +21,11 @@ class TrafficFlowFetcher:
         self.form = form
         self.thickness = thickness
 
-    def get_traffic_flow(self, location):
+    def get_traffic_flow_per_cord(self, location):
         """
         Fetches real-time data on road speeds and travel times from the TomTom Traffic API.
         """
-        url = (f"https://{self.base_url}/traffic/services/{self.version_number}/"
-               f"flowSegmentData/{self.style}/{self.zoom}/{self.form}?"
-               f"key={self.api_key}&point={location}&thickness={self.thickness}")
+        url = f"https://{self.base_url}/traffic/services/{self.version_number}/flowSegmentData/{self.style}/{self.zoom}/{self.form}?key={self.api_key}&point={location}&thickness={self.thickness}"
         response = requests.get(url)
         
         if response.status_code == 200:
@@ -56,3 +55,22 @@ class TrafficFlowFetcher:
         Save the DataFrame to a CSV file.
         """
         df.to_csv(filename, index=False)
+
+    def get_traffic_flow(self, nyc_lat_min, nyc_lat_max, nyc_lon_min, nyc_lon_max, lat_step=0.0005, lon_step=0.0015):
+        """
+        Generates a grid of latitude and longitude points and fetches traffic data for each.
+        Concatenates all data into a single DataFrame.
+        """
+        lat_intervals = np.arange(nyc_lat_min, nyc_lat_max, lat_step)
+        lon_intervals = np.arange(nyc_lon_min, nyc_lon_max, lon_step)
+        
+        combined_df = pd.DataFrame()  # Initialize an empty DataFrame to store results
+        
+        for lat in lat_intervals:
+            for lon in lon_intervals:
+                location = f"{lat},{lon}"
+                json_data = self.get_traffic_flow_per_cord(location)
+                df = self.json_to_dataframe(json_data)
+                combined_df = pd.concat([combined_df, df], ignore_index=True)
+        
+        return combined_df
