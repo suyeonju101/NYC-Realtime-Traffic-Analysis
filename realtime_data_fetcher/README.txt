@@ -1,5 +1,5 @@
 Please execute main.py with the following guidelines:
 
-1. Incident Data: This will automatically fetch real-time incident data every 2 minutes. You can adjust the time interval if needed by referring to the comment in main.py.
+1. Incident Data: Real-time incident data will be fetched automatically every hour. To adjust the time interval, refer to the comment within main.py.
 
-2. Flow Data: The implementation for fetching flow data is not yet complete.
+2. Flow Data: Real-time flow data will be fetched hourly during peak hours (8-10 AM and 4-6 PM). To modify this interval, refer to the comment within main.py.
