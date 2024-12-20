@@ -27,9 +27,9 @@ Additionally, this repository includes modules for fetching real-time traffic fl
 
     ├── README.md
 
-    ├── Traffic Flows Fetch and Visualization.ipynb
+    ├── Traffic Flows Fetch and Visualization.ipynb     # an example guide of visualize the fetched traffic flow data
 
-    ├── Traffic Incidents Visualization.ipynb
+    ├── Traffic Incidents Visualization.ipynb           # an example guide of visualize the fetched traffic incident data
 
     ├── img             # a directory contained all images used in the dashboard
     
